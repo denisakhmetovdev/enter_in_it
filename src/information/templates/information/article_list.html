@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Список статей по теме
+{% endblock %}
+
+
+{% block content %}
+<a href="{% url 'home' %}">Главная</a>
+<h1>Список статей по теме "{{ category }}"</h1>
+{% if not articles %}
+<h4>По этой теме ещё нет статей</h4>
+{% else %}
+{% for article in articles %}
+    <div>
+        <a href="{% url 'article' article.id %}"><h2 class="titles">{{ article.title }}</h2></a>
+    </div>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
+

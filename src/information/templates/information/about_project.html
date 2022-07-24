@@ -1,0 +1,23 @@
+{% extends 'article_base.html' %}
+
+
+{% block title %}
+  О проекте
+{% endblock %}
+
+
+{% block content %}
+    {% for article in about_project %}
+<h2>{{ article.title }}</h2>
+        {% autoescape on %}
+        <p>{{ article.text|safe }}</p>
+{% endautoescape %}
+<h3>Контакты:</h3>
+<p>{{ article.email }}</p>
+<p>{{ article.phone1 }}</p>
+        {% if article.phone2 %}
+<p>{{ article.phone2 }}</p>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
