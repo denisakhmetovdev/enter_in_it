@@ -7,14 +7,19 @@
 
 
 {% block content %}
-<a href="{% url 'home' %}">Главная</a>
-<h1>Список статей по теме "{{ category }}"</h1>
+<a href="{% url 'home' %}" style="--clr: #ff0000"><span>Главная</span></a><br>
+<h1>Список статей по теме "{{ category.title }}"</h1>
+<div class="category_description">
+    <div class="article_text">
+        <p>{{ description }}</p>
+    </div>
+</div>
 {% if not articles %}
-<h4>По этой теме ещё нет статей</h4>
+<br><h4 class="nope" style="--clr: #BDB76B">В этой категории ещё нет статей</h4>
 {% else %}
 {% for article in articles %}
     <div>
-        <a href="{% url 'article' article.id %}"><h2 class="titles">{{ article.title }}</h2></a>
+        <a href="{% url 'article' article.id %}" style="--clr: #00ff00"><span>{{ article.title }}</span></a>
     </div>
 {% endfor %}
 {% endif %}

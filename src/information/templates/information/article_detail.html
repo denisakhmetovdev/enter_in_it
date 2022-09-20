@@ -7,8 +7,12 @@
 
 
 {% block content %}
-    <h2>{{ article.title }}</h2>
-    <p>{{ article.text|safe }}</p>
-    <h5>{{ article.date }}</h5>
+    <div class="back_to_category">
+        <a href="{% url 'article_list' category_id %}" style="--clr: #00CED1"><span>Назад в раздел</span></a><br>
+    </div>
+    <h2>{{ article.title }}</h2><br><br>
+    <p class="article">{{ article.text|safe }}</p>
+    <br>
+    <h5>{{ article.date.date }}</h5>
+    <br>
 {% endblock %}
-	

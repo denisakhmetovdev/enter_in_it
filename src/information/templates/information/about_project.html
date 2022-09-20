@@ -8,13 +8,13 @@
 
 {% block content %}
     {% for article in about_project %}
-<h2>{{ article.title }}</h2>
+<h1>{{ article.title }}</h1>
         {% autoescape on %}
         <p>{{ article.text|safe }}</p>
 {% endautoescape %}
 <h3>Контакты:</h3>
-<p>{{ article.email }}</p>
-<p>{{ article.phone1 }}</p>
+<p class="contact" style="--contact-color: #9370DB">{{ article.email }}</p>
+<p class="contact" style="--contact-color: #9370DB">{{ article.phone1 }}</p>
         {% if article.phone2 %}
 <p>{{ article.phone2 }}</p>
         {% endif %}
